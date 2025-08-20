@@ -1,0 +1,36 @@
+node_modules/
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+
+node_modules/
+GeneratedPluginRegistrant.java
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+firebase-debug.log
+*.jank_metrics_*.json
+
+# Secrets
+serviceAccountKey.json
+data.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

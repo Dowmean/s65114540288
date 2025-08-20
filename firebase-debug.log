@@ -1,0 +1,25 @@
+[debug] [2025-02-04T03:17:03.548Z] ----------------------------------------------------------------------
+[debug] [2025-02-04T03:17:03.551Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\thida\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-02-04T03:17:03.552Z] CLI Version:   13.29.3
+[debug] [2025-02-04T03:17:03.552Z] Platform:      win32
+[debug] [2025-02-04T03:17:03.552Z] Node Version:  v22.11.0
+[debug] [2025-02-04T03:17:03.553Z] Time:          Tue Feb 04 2025 10:17:03 GMT+0700 (เวลาอินโดจีน)
+[debug] [2025-02-04T03:17:03.553Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-04T03:17:03.563Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-04T03:17:03.563Z] > authorizing via signed-in user (thidarat.fa.65@ubu.ac.th)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Finalproject\Hiwmai
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

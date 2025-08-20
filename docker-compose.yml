@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: hiwmai_postgres
+    environment:
+      POSTGRES_USER: Dowmean
+      POSTGRES_PASSWORD: Dowmean.1006
+      POSTGRES_DB: hiwmai
+    ports:
+      - "202.28.49.122:5434:5432"   # bind เฉพาะ IP นี้
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U Dowmean -d hiwmai"]
+      interval: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend_api
+      # ถ้า Dockerfile มี multi-stage ให้ตั้ง target=production
+      # target: production
+    container_name: hiwmai_backend
+    environment:
+      NODE_ENV: production
+      HOST: "0.0.0.0"        # ให้ Express listen ทุก interface
+      PORT: "3000"
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: Dowmean
+      DB_PASSWORD: Dowmean.1006
+      DB_NAME: hiwmai
+    env_file:
+      - ./backend_api/.env
+    ports:
+      - "202.28.49.122:3000:3000"  # bind เฉพาะ IP นี้
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db_data:
