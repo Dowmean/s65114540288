@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: Dowmean.1006
       POSTGRES_DB: hiwmai
     ports:
-      - "202.28.49.122:5434:5432"   # bind เฉพาะ IP นี้
+      - "20288:5432"  
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./postgres-init:/docker-entrypoint-initdb.d
@@ -22,12 +22,10 @@ services:
   backend:
     build:
       context: ./backend_api
-      # ถ้า Dockerfile มี multi-stage ให้ตั้ง target=production
-      # target: production
     container_name: hiwmai_backend
     environment:
       NODE_ENV: production
-      HOST: "0.0.0.0"        # ให้ Express listen ทุก interface
+      HOST: "0.0.0.0"
       PORT: "3000"
       DB_HOST: db
       DB_PORT: "5432"
@@ -37,7 +35,7 @@ services:
     env_file:
       - ./backend_api/.env
     ports:
-      - "202.28.49.122:3000:3000"  # bind เฉพาะ IP นี้
+      - "10288:3000"  
     depends_on:
       db:
         condition: service_healthy
